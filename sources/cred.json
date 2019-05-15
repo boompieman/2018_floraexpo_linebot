@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "floraexpo-224402",
+  "private_key_id": "fdb88f259f00764cdd127be6c79f469c6c11d2e1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDP4NJ0VNulKAOs\nEwYVN6idUWxAD5khBXSEhBwfzTggp4WCfuBzXzBIkhZ0XpOC8tDzpoREs9Iehfhc\niwuTTnJ5XpagWyy4OxVhKqrkQ9iIVAoKpvY0IXMwTj2AGCQCLf6cB7X1ZVRk12Vi\nrWOum0+FJw2Gpv5sYmXS2aRPpQ+22ZyzU2nks827qKm6o/tbUIhVBhf4u2FwLfu8\njV5C/raQb+1ihRoiLiCt72pk9NazXVXXK5ZeNzQ2GX4CY/+vO/VBbdI7E+cYJtJy\nEi9YJIxteq/Nt5PBsj0Ey4ZVySO/WadQNMsMwxvgCoBQ6bioW58haa85WScCHxTh\nbxhZOfABAgMBAAECggEABlFByWaZdOUeFMj7OAKEraCU1pmNa3MmqFmkyn6fxGDy\n7hVRrY/oqrvt0hmHCBq9qOSYQ8eR4iWWIlHYxzWXcFgkjGOuRzxcbk3apayTfwkh\nc6jBS1zyNYybJ90T8xECGix4e32vLpAGimop4QY383Git+3em4fzVOYSV+1J6KJE\nVRwLzY/+7axXPRIn13v1kab6pHaL2TTedmy0G1+aNLy4V0uHNN3p6+g4kfYCC+Qg\n800VYQMRbCWXHazV8yLzXmRLhCEv6q7emFxd4Eibvvw25KydObzAY2HmMofHO0XZ\n0WbWo/VMFJq7nmMXefw96KkkJBVJg1LzLUOAgPAntQKBgQD0Vyn2uHyz3YMFWCYb\noAQEdv4Arfpc8uA/tQTbDxW1RryHmYEBgPaPGlTGsS6Frx9203D47TaS1BSvhK2D\nzTPCpsmLUkGUM7n0UtZSF+WVjGFwxvoepSVzsaBp5q5qykQXKYXeMsX9dyFNdMHN\nzt16O/nfsLYSLzW6og1NEWZJ5wKBgQDZzD02d/LUEpkJGov7MufHe+5ugsVu8t1D\n+3jvKaopj8Mcmou48tJaSVXEzFYanbvFS4h8AohvyIuxPI0vwCd+0xG3JvFAh0Oz\nVTlDWmep2mCDa+sDyJ6CGVVTIosM4m+crBrC2LYejQ2skVe1Eaf5ga/N1X03G26J\nZIb4gulJ1wKBgQDjgOkstPg/jQe6iSnqXOKAub6lKVjNBMOx7b1YrkH7KKLP6yjI\nGqj3839uBXmYtccpH5S34j8HFXsxNetNploEasGL/IndERCaoiq2A1QcG7p6hHpM\n4F3vzDrdgBF0k2I04s+nZUUeTLbwZL8y/uMPNhrhoarVYam4Xbzevk2sjwKBgQDH\njZF8aZSM6Olc5Pzi0PZ62TtR9/GLwWwoUK2ye/tUD0uW1qc0cw92+ABky1ANHP6h\nO562+N8nhJkxcChwWuAVHLD7neun0wedtXU9GAUpJFQPtf5jvho1W57JCDpdOM9I\nvovagRMElPq1ZYn19lJwknmQ343VwwWZTwk3g0LaiwKBgQCCWIBAQ+BmN1TJ5l+O\nxpNXNXAcVTuyrCgY9lAnqUYq1xOoC2FBINO+GZRkijhC7KMi07KzDqKZmC7afUZ2\nqbHRj2bvzMwAUT+IT4SVauMf+G6CT4MbRfZy0ZPuFH8ncEGMmSy3/1huKGeJepHx\nQCPzD0BTcVGfW7lWovdUuo0ubA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-nxwttx@floraexpo-224402.iam.gserviceaccount.com",
+  "client_id": "111948307300061876621",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-nxwttx%40floraexpo-224402.iam.gserviceaccount.com"
+}

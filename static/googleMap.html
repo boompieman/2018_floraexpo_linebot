@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">  
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript" src="venues.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-1.12.1.min.js"></script>
+  </head>    
+<body>
+    <div id="map"></div>
+<script>
+var map;
+var infoWindow;
+var myMap = document.getElementById('map');
+var u = navigator.userAgent;
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    
+function initMap() {   
+   
+    var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };    
+    
+    map = new google.maps.Map(myMap, {
+
+        center: {
+            lat: 24.324497,         
+            lng: 120.685432
+        },
+        
+        zoom: 20
+    });
+
+    infoWindow = new google.maps.InfoWindow();
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            map.setCenter(pos);
+            
+            generateMyLocationMark(pos.lat, pos.lng)
+            
+            // 場館 Mark
+            for (var i = 0; i < venues.length; i++) {
+                generateVenueMark(venues[i], pos);
+            }            
+            
+            
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        }, options);
+        
+    } else {
+    // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+}
+    
+function generateVenueMark(venue, myLoc) {
+
+    var placeLoc = {
+        "lat" : venue.location.latitude,
+        "lng" : venue.location.longitude
+    };  
+    
+    var marker = new google.maps.Marker({
+        position: placeLoc,
+        map: map,
+        title: venue.title
+    }); 
+    //使marker 可以點擊 觸發infowindow 生成框 設定內容
+    google.maps.event.addListener(marker, 'click', function() {
+        
+        var div = document.createElement('div');
+        div.innerHTML = "<H2>" + venue.title + "</H2>" + venue.address + "<br><h1>點擊帶我過去</h1></br>";
+        
+        infoWindow.setContent(div);
+        infoWindow.open(map, this);        
+
+        google.maps.event.addDomListener(div, 'click', function() {
+            
+            
+            if (isiOS == true) {
+                window.location.replace(
+                    "comgooglemaps://?saddr="
+                    + myLoc.lat
+                    + "," 
+                    + myLoc.lng 
+                    + "&daddr=" +
+                    venue.location.latitude 
+                    + "," 
+                    + venue.location.longitude 
+                    + "&directionsmode=walking");
+            }
+
+            else if (isAndroid == true) {
+                window.location.replace(
+                    "google.navigation:q=" 
+                    + venue.location.latitude 
+                    + "," 
+                    + venue.location.longitude 
+                    + "&mode=w");
+            }
+
+            else {
+                window.location.replace(
+                    "https://www.google.com/maps/dir/?api=1&origin=" 
+                    + myLoc.lat 
+                    + "," 
+                    + myLoc.lng 
+                    + "&destination=" 
+                    + venue.location.latitude 
+                    + "," 
+                    + venue.location.longitude 
+                    + "&travelmode=walking");            
+            }
+
+
+        });             
+        
+    });
+}    
+   
+function generateMyLocationMark(lat, lng) {
+
+    var placeLoc = {
+        "lat" : lat,
+        "lng" : lng
+    };  
+    
+    var marker = new google.maps.Marker({
+        position: placeLoc,
+        map: map,
+        title: '我在這裡', 
+        icon: {
+            url: './sources/own_location.png',
+            scaledSize: new google.maps.Size(64, 64)
+        }
+    }); 
+    
+    //使marker 可以點擊 觸發infowindow 生成框 設定內容
+    google.maps.event.addListener(marker, 'click', (function() {    
+        
+        var div = document.createElement('div');
+        div.innerHTML = "<H2>我在這裡</H2>";
+        
+        infoWindow.setContent(div);
+        infoWindow.setPosition(placeLoc);
+        infoWindow.open(map, this);        
+        
+    }));
+}
+
+</script>
+    
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=initMap"></script>    
+
+</body>
+</html>
